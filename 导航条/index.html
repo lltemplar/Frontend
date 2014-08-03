@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            font-size: 12px;
+            font-family: "宋体",Arial;
+            color: #707070;
+            line-height: 180%;
+            margin:0px;
+            padding:0px;
+        }
+        li{
+            list-style: none;
+        }
+        #menu {
+            background: #f4f4f4;
+            height: 45px;
+            width: 100%;
+        }
+        #navjs {
+            z-index: 9998;
+        }
+        .nav {
+            background: #f4f4f4;
+            height: 45px;
+            margin: 0 auto;
+            position: relative;
+            width: 1000px;
+            z-index: 90;
+        }
+        .nav label a.leftm {
+            background: #f4f4f4;
+            width: 110px;
+        }
+        .nav label a {
+            background: #f4f4f4 url(./icons2014.gif) no-repeat 115px -24px;
+            border: 1px solid #f4f4f4;
+            border-right-color: #fff;
+            color: #666;
+            display: inline-block;
+            float: left;
+            font: normal 16px/43px "微软雅黑";
+            height: 43px;
+            text-align: center;
+            width: 150px;
+        }
+        .nav label.on a {
+            background: #0085d0;
+            border: 1px solid #0085d0;
+            color: #fff;
+            text-decoration: none;
+        }
+        .nav label a.leftm {
+            background: #0085d0;
+            width: 110px;
+        }
+        .nav label a:hover, .nav label a.on {
+            background-color: #fff;
+            border: 1px solid #d2d2d2;
+            border-bottom-color: #fff;
+            color: #8ec31f;
+            text-decoration: none;
+        }
+        .nav label.on a.leftm:hover {
+            background: #0085d0;
+            border: 1px solid #0085d0;
+            color: #fff;
+        }
+        .nav_sub3 {
+            position: absolute;
+            top: 45px;
+            left: 0;
+            font-size: 12px;
+            padding: 0 10px;
+            z-index: 9998;
+        }
+        .nav_sub3_temp {
+            background-color: #FFF;
+            border: 1px solid #d2d2d2;
+        }
+        .nav_sub3_temp .t_arrow {
+            position: absolute;
+            left: 50%;
+            top: -1px;
+            width: 150px;
+            height: 1px;
+            margin-left: -71px;
+            background-color: #fff;
+            font-size: 0;
+        }
+        .list1 {
+            display: block;
+            max-width: 116px;
+            min-width: 85px;
+            _width: 100px;
+            overflow: hidden;
+            padding: 13px 25px 320px 20px;
+            margin-bottom: -300px;
+            color: #666;
+        }
+        .nav_sub3_temp .list1 {
+            float: left;
+            max-width: 150px;
+            min-width: 85px;
+            _width: 100px;
+            overflow: hidden;
+            padding: 13px 15px 25px 20px;
+            margin-bottom: 0;
+            color: #666;
+        }
+        .list1 li {
+            margin: 6px 0;
+            overflow:hidden;
+        }
+        .nav_sub3_temp .list1 li.t {
+            font-weight: bold;
+            color: #737373;
+            height: 35px;
+            margin-bottom: 8px;
+        }
+        .nav_sub3_temp .list1 li a {
+            color: #2e2e2e;
+            max-width: 150px;
+        }
+        .nav_sub3_temp .list1 li.t a {
+            color: #0085d0;
+            font-size: 14px;
+            line-height: 35px;
+            height: 35px;
+            font-weight: bold;
+        }
+        .list3 {
+            float: left;
+            max-width: 100px;
+            min-width: 70px;
+            _width: 96px;
+            overflow: hidden;
+            padding: 13px 10px 25px 12px;
+            color: #666;
+        }
+        .list3 li {
+            height: 18px;
+            overflow: hidden;
+            margin: 6px 0;
+        }
+        .list3 li.t {
+            height: auto;
+            font-weight: bold;
+            color: #737373;
+            height: 35px;
+            margin-bottom: 8px;
+        }
+        .list3 li a {
+            display: block;
+            height: 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #2e2e2e;
+            max-width: 100px;
+            _width: 96px;
+        }
+        .list3 li.t a {
+            position: relative;
+            color: #0085d0;
+            font-size: 14px;
+            line-height: 35px;
+            height: 35px;
+            font-weight: bold;
+            margin: 0 0 8px;
+            list-style: none;
+        }
+    </style>
+    <script src="./jquery.js" type="text/javascript"></script>
+    <script>
+        $(function(){
+            $('#navMenuList label').hover(function(){
+                var index = $(this).index();
+                $($('#navjs').children().get(index-1)).css("top","43px");
+            },function() {
+                var index = $(this).index();
+                $($('#navjs').children().get(index - 1)).css("top", "-1000px");
+            });
+        });
+
+    </script>
+</head>
+<body>
+<div id="menu">
+<div class="nav" states="inited">
+<div id="navMenuList"><label id="btn0_0"  class="on " ><a class="leftm"
+        >首页</a></label><label
+        id="btn0_2"><a>我的移动</a></label><label id="btn0_3"  ><a>网上营业厅</a></label><label
+        id="btn0_4"><a>服务与支持</a></label></div>
+<div id="navjs">
+<div class="nav_sub3 nav_sub3_temp clearfix" id="my_gmccHead_Box" style="top: -1000px;">
+    <div id="t_arrow" class="t_arrow" style="left: 183px;"></div>
+    <!-- 二三级菜单-->
+    <ul class="list1">
+        <li class="t"><a target="_self">我的账户 </a></li>
+        <!-- 三级菜单 begin-->
+        <li><a>我的套餐查询</a>
+        </li>
+        <li><a>我的业务查询</a></li>
+        <li><a>详单查询</a>
+        </li>
+        <li><a>账单查询</a></li>
+        <li><a>积分查询</a></li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+    <ul class="list1">
+        <li class="t"><a target="_self">我要办理 </a>
+        </li>
+        <!-- 三级菜单 begin-->
+        <li><a>业务办理</a></li>
+        <li><a>优惠促销</a>
+        </li>
+        <li><a>在线充值</a></li>
+        <li><a>手机旗舰店</a></li>
+        <li><a>号码旗舰店</a></li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+    <ul class="list1">
+        <li class="t"><a
+                target="_self">移动生活 </a></li>
+        <!-- 三级菜单 begin-->
+        <li><a>4G专区</a></li>
+        <li><a>光宽带专区</a></li>
+        <li><a>上网专区</a></li>
+        <li><a>TOP10热点问题</a></li>
+        <li><a>服务大讲堂</a></li>
+        <li><a>手机优惠汇总</a></li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+</div>
+<div class="nav_sub3 nav_sub3_temp clearfix" id="shopHead_Box" style="top: -1000px;">
+    <div id="t_arrow" class="t_arrow" style="left: 335px;"></div>
+    <!-- 二三级菜单-->
+    <ul class="list3">
+        <li class="t"><a target="_self">话费服务 </a></li>
+        <!-- 三级菜单 begin-->
+        <li><a>详单查询</a>
+        </li>
+        <li><a
+                >优惠返还查询</a></li>
+        <li><a>账单查询</a></li>
+        <li><a>余额查询</a>
+        </li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+    <ul class="list3">
+        <li class="t"><a
+                target="_self">业务办理 </a></li>
+        <!-- 三级菜单 begin-->
+        <li><a
+                >流量共享套餐</a></li>
+        <li><a
+                >手机流量套餐</a></li>
+        <li><a
+                >流量转赠套餐</a></li>
+        <li><a
+                >手机流量叠加包</a></li>
+        <li><a>WLAN上网</a>
+        </li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+    <ul class="list3">
+        <li class="t"><a target="_self">积分计划 </a></li>
+        <!-- 三级菜单 begin-->
+        <li><a>积分查询</a>
+        </li>
+        <li><a>M值查询</a>
+        </li>
+        <li><a>积分商城</a></li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+    <ul class="list3">
+        <li class="t"><a
+                target="_self">优惠促销 </a></li>
+        <!-- 三级菜单 begin-->
+        <li><a
+                >当前优惠</a></li>
+        <li><a
+                >官网充值三重礼</a></li>
+        <li><a>天天竞拍</a>
+        </li>
+        <li><a>E分砸蛋</a></li>
+        <li><a>E分乐园</a></li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+    <ul class="list3">
+        <li class="t"><a
+                target="_self">选号入网 </a></li>
+        <!-- 三级菜单 begin-->
+        <li><a>规则号码</a></li>
+        <li><a>星座号码</a></li>
+        <li><a>吉祥号码</a></li>
+        <li><a>爱情号码</a></li>
+        <li><a>普通号码</a></li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+    <ul class="list3">
+        <li class="t"><a
+                target="_self">优惠购机 </a></li>
+        <!-- 三级菜单 begin-->
+        <li><a
+                >红辣椒3G</a>
+        </li>
+        <li><a
+                >迪士尼M7009</a>
+        </li>
+        <li><a>广州店</a>
+        </li>
+        <li><a>深圳店</a>
+        </li>
+        <li><a>佛山店</a>
+        </li>
+        <li><a>所有店中店</a></li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+    <ul class="list3">
+        <li class="t"><a
+
+                target="_self">网上交费 </a></li>
+        <!-- 三级菜单 begin-->
+        <li><a>充值交费</a></li>
+        <li><a
+                >随心充</a></li>
+        <li><a>查询话费</a>
+        </li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+    <ul class="list3">
+        <li class="t"><a target="_self">我的专区 </a></li>
+        <!-- 三级菜单 begin-->
+        <li><a>我的E分</a></li>
+        <li><a>待领E分</a></li>
+        <li><a>我的套餐</a></li>
+        <li><a>我的业务</a></li>
+        <li><a>个人资料</a>
+        </li>
+        <li><a>流量查询</a></li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+</div>
+<div class="nav_sub3 nav_sub3_temp clearfix" id="serviceHead_Box" style="top: -1000px;">
+    <div id="t_arrow" class="t_arrow" style="left: 487px;"></div>
+    <!-- 二三级菜单-->
+    <ul class="list3">
+        <li class="t"><a target="_self">服务渠道指南 </a>
+        </li>
+        <!-- 三级菜单 begin-->
+        <li><a>实体营业厅</a>
+        </li>
+        <li><a>短信营业厅</a></li>
+        <li><a>网上营业厅</a>
+        </li>
+        <li><a>掌上/手机营业厅</a>
+        </li>
+        <li><a>自助终端</a>
+        </li>
+        <li><a>10086热线</a>
+        </li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+    <ul class="list3">
+        <li class="t"><a target="_self">移动品牌介绍 </a>
+        </li>
+        <!-- 三级菜单 begin-->
+        <li><a>了解"中国移动"</a></li>
+        <li><a>了解"和"品牌</a></li>
+        <li><a> 和品牌内涵</a></li>
+        <li><a>4G资费</a></li>
+        <li><a>玩转4G全攻略</a></li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+    <ul class="list3">
+        <li class="t"><a target="_self">终端使用帮助 </a>
+        </li>
+        <!-- 三级菜单 begin-->
+        <li><a>移动自主品牌</a></li>
+        <li><a
+                >三星手机体验</a></li>
+        <li><a
+                >酷派手机体验</a></li>
+        <li><a
+                >诺基亚体验</a></li>
+        <li><a
+                >更多手机体验</a></li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+    <ul class="list3">
+        <li class="t"><a target="_self">下载中心 </a>
+        </li>
+        <!-- 三级菜单 begin-->
+        <li><a
+                >客户端</a></li>
+        <li><a>手机营业厅下载</a>
+        </li>
+        <li><a>全球通杂志</a>
+        </li>
+        <li><a>自主品牌资料</a>
+        </li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+    <ul class="list3">
+        <li class="t"><a
+                target="_self">服务热点 </a></li>
+        <!-- 三级菜单 begin-->
+        <li><a>为民服务创先争优</a>
+        </li>
+        <li><a
+                >跨区服务</a></li>
+        <li><a>号码归属地查询</a>
+        </li>
+        <li><a>WLAN热点查询</a>
+        </li>
+        <li><a>终端售后点查询</a>
+        </li>
+        <li><a
+                >投诉与建议</a></li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+    <ul class="list3">
+        <li class="t"><a target="_self">业务使用帮助 </a></li>
+        <!-- 三级菜单 begin-->
+        <li><a>资费专区</a></li>
+        <li><a>国际/港澳台</a></li>
+        <li><a>业务指南</a></li>
+        <li><a
+                >资费备案专区</a></li>
+        <li><a>满意度调研问卷</a>
+        </li>
+        <li><a>移动网站满意度调研问卷</a>
+        </li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+    <ul class="list3">
+        <li class="t"><a target="_self">网站使用帮助 </a></li>
+        <!-- 三级菜单 begin-->
+        <li><a
+                >购买产品流程</a>
+        </li>
+        <li><a
+                >优惠购机流程</a>
+        </li>
+        <li><a
+                >手机售后服务</a></li>
+        <li><a
+                >参加优惠</a></li>
+        <li><a>充值交费问答</a></li>
+        <li><a
+                >网上支付指引</a></li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+    <ul class="list3">
+        <li class="t"><a target="_self">其他服务产品 </a></li>
+        <!-- 三级菜单 begin-->
+        <li><a>宽带业务查询</a></li>
+        <li><a>实体营业厅查询</a></li>
+        <li><a>订单查询及取消</a>
+        </li>
+        <li><a
+                >随心充</a></li>
+        <li><a>12580专区</a></li>
+        <li><a>达人吧</a></li>
+
+        <!-- 三级菜单 end-->
+    </ul>
+</div>
+<div class="nav_sub3 nav_sub3_temp clearfix" id="indexHead_Box" style="top: -1000px; display: none;"></div>
+</div>
+<!--子菜单容器-->
+</div>
+</div>
+</body>
+</html>
