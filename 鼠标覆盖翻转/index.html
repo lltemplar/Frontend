@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            font-size: 12px;
+            color: #4b4b4b;
+            text-align: center;
+            margin:0;
+            padding:0;
+            font-family: "微软雅黑";
+        }
+        li {
+            list-style: none;
+        }
+        .w960 {
+            width: 960px;
+            margin: auto;
+        }
+        .pink_font {
+            color: #ff1d93;
+        }
+        .fixFloat:after {
+            content: '';
+            display: block;
+            clear: both;
+            font-size: 0;
+            height: 0;
+            line-height: 0;
+        }
+        ul li {
+            float: left;
+        }
+
+        ul li.dots i {
+            display: inline-block;
+            width: 127px;
+            height: 29px;
+            background: url(./how_11.png) no-repeat 16px bottom;
+            margin-top: 150px;
+        }
+        ul li .caption {
+            position: relative;
+            font-size: 20px;
+            height: 58px;
+            line-height: 58px;
+        }
+        .p_open li .caption>a {
+            color: #007bcf;
+            text-decoration: underline;
+        }
+        ul li a.box {
+            position: relative;
+            display: block;
+            width: 212px;
+            height: 212px;
+        }
+        ul li a.box .card_pos {
+            position: absolute;
+            top: 0;
+            z-index: 2;
+            width: 212px;
+            height: 212px;
+            background: url(./how_07.png) no-repeat 0 0;
+        }
+        ul li a.box .card_neg {
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            width: 182px;
+            height: 182px;
+            padding: 15px;
+            color: #fff;
+            background: url(./words_03.png) no-repeat 0 bottom;
+            text-align: left;
+        }
+        ul li a.box .card_neg em {
+            font-size: 24px;
+        }
+        ul li a.box .card_neg p {
+            font-size: 16px;
+            height: 100px;
+            padding-top: 17px;
+            padding-bottom: 5px;
+            margin:0;
+        }
+
+        ul li a.box .card_neg button {
+            border: 0;
+            width: 89px;
+            height: 29px;
+            font-size: 16px;
+            color: #e00477;
+            background: url(./btnBg.png) no-repeat 0 0;
+            text-align: center;
+            line-height: 29px;
+            cursor:pointer;
+            vertical-align: middle;
+        }
+        ul li a.box .card_pos2 {
+            background-position: -340px 0;
+        }
+        ul li a.box .card_pos3 {
+            background-position: right 0;
+        }
+    </style>
+</head>
+<body>
+<div class="w960">
+    <ul class="fixFloat">
+        <li class="li_step1">
+            <div class="caption"><a href="#card">免费换卡</a></div>
+            <a class="box">
+                <div class="card_pos" style="-webkit-transform: translate3d(0px, 0px, 0px);"></div>
+                <div class="card_neg" style="-webkit-transform: matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1);">
+                    <em>4G卡</em>
+                    <p><span class="pink_font">免费换卡，无需换号</span>，还可享受<span class="pink_font">邮寄到家</span>！4G卡质量升级，保密更好，快来体验吧！</p>
+                    <button otype="button" otitle="选择终端-立即查看" oarea="办理流程">立即查看</button>
+                </div>
+            </a>
+        </li>
+        <li class="dots"><i></i></li>
+        <li class="li_step2">
+            <div class="caption"><a href="#dinner">优惠套餐</a></div>
+            <a class="box">
+                <div class="card_neg" style="-webkit-transform: matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1);">
+                    <em>4G套餐</em>
+                    <p>4G套餐<span class="pink_font">低至58元/月</span>，相同价格更多流量，还有流量双封顶，省钱更省心！</p>
+                    <button otype="button" otitle="换卡-立即查看" oarea="办理流程">立即查看</button>
+                </div>
+                <div class="card_pos card_pos2" style="-webkit-transform: translate3d(0px, 0px, 0px);"></div>
+            </a>
+        </li>
+        <li class="dots"><i></i></li>
+        <li class="li_step3">
+            <div class="caption"><a href="#terminal">买4G手机</a></div>
+            <a class="box box_h step3_b">
+                <div class="card_pos card_pos3" style="-webkit-transform: translate3d(0px, 0px, 0px);"></div>
+                <div class="card_neg" style="-webkit-transform: matrix3d(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1);">
+                    <em>4G终端</em>
+                    <p>高大上、炫酷帅、千元机，丰富的4G手机，还有话费赠送，总有一款适合您！</p>
+                    <button otype="button" otitle="办套餐-立即查看" oarea="办理流程">立即查看</button>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<script src="./TweenMax.js" type="text/javascript"></script>
+<script src="./jquery.js" type="text/javascript"></script>
+
+<script>
+    $(function(){
+        var q = {init: function() {
+            //debugger;
+            var r = this.$view = $(".w960");
+            var s = r.find(".box");
+            debugger;
+            if ($.browser.msie && $.browser.version < 9) {
+                s.each(function() {
+                    debugger;
+                    var t = $(this);
+                    t.mouseenter(function() {
+                        t.find(".card_pos").hide();
+                        t.find(".card_neg").show()
+                    }).mouseleave(function() {
+                        t.find(".card_pos").show();
+                        t.find(".card_neg").hide()
+                    })
+                })
+            } else {
+                s.each(function() {
+                    debugger;
+                    var u = $(this);
+                    var t = new TimelineMax({pause: true});
+                    t.add(TweenMax.fromTo(u.find(".card_pos"), 0.2, {rotationY: 0}, {rotationY: 90})).add(TweenMax.fromTo(u.find(".card_neg"), 0.2, {rotationY: -90}, {rotationY: 0}));
+                    t.pause();
+                    u.mouseenter(function() {
+                        t.play()
+                    }).mouseleave(function() {
+                        t.reverse()
+                    })
+                })
+            }
+            s.find("button").each(function(t, v) {
+                var u = ["#card", "#dinner", "#terminal", ];
+                $(this).click(function() {
+                    g.$nav.find("a[href=" + u[t] + "]").click();
+                    if (t == 1) {
+                        h.$faqNavList.eq(4).click()
+                    }
+                    return false
+                })
+            })
+        },active: $.noop,deactive: $.noop};
+        q.init();
+    });
+
+</script>
+</body>
+</html>
