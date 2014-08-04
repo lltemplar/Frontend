@@ -3,8 +3,21 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <script src="./jquery.js"></script>
+    <script src="./jquery.lazyload.js"></script>
+    <script>
+        $(function(){
+            $('img.lazy').lazyload();
+        });
+    </script>
 </head>
-<body>
-
+<body style="text-align: center">
+<img class="lazy" src="./load.gif" data-original="./1.jpg" width="800" height="600"  style="margin:10px auto" />
+<img class="lazy" src="./load.gif" data-original="./2.jpg" width="800" height="600"  style="margin:10px auto" />
+<img class="lazy" src="./load.gif" data-original="./3.jpg" width="800" height="600"  style="margin:10px auto" />
+<img class="lazy" src="./load.gif" data-original="./4.jpg" width="800" height="600"  style="margin:10px auto" />
+<img class="lazy" src="./load.gif" data-original="./5.jpg" width="800" height="600"  style="margin:10px auto" />
+<!--<img class="lazy" data-original="./load.gif" data-original="./1.jpg" width="800" height="600"  style="margin:10px auto" />
+<img class="lazy" data-original="./load.gif" data-original="./2.jpg" width="800" height="600"  style="margin:700px auto" />-->
 </body>
 </html>
