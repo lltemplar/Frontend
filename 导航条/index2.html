@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            color: #3c3c3c;
+            font: 12px/1.5 tahoma, arial, 'Hiragino Sans GB', '宋体', sans-serif;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3c3c3c;
+        }
+
+        a:hover {
+            color: #f40;
+            text-decoration: none;
+        }
+
+        .notice {
+            width: 288px;
+            height: 98px;
+            border: 1px solid #e8e8e8;
+            overflow: hidden;
+        }
+
+        .notice .notice-hd {
+            position: relative;
+            height: 27px;
+            background: #f7f7f7;
+        }
+
+        .notice .notice-hd ul {
+            position: absolute;
+            top: 0;
+            left: -1px;
+            width: 301px;
+        }
+
+        .notice .notice-hd ul li {
+            float: left;
+            display: block;
+            height: 26px;
+            line-height: 26px;
+            overflow: hidden;
+            padding: 0 1px;
+            width: 56px;
+            text-align: center;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .notice .notice-hd ul .selected {
+            padding: 0;
+            font-weight: 700;
+            border-left: 1px solid #e8e8e8;
+            border-right: 1px solid #e8e8e8;
+            border-bottom-color: #fff;
+            background: #fff;
+        }
+
+        .notice .notice-bd .mod {
+            margin: 10px;
+            height: 50px;
+        }
+
+        .notice .notice-bd .mod li {
+            float: left;
+            display: block;
+            height: 25px;
+            line-height: 25px;
+            overflow: hidden;
+            width: 134px;
+        }
+    </style>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function () {
+            $('div.notice-hd').find("li").each(function (index, item) {
+                $(item).hover(function () {
+                    $(item).siblings().removeClass("selected");
+                    $(item).addClass("selected");
+                    var dom = $('div.notice-bd').children().get(index);
+                    $(dom).siblings().hide();
+                    $(dom).show();
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="J_Notice" class="notice">
+    <div class="notice-hd" data-spm="1997557785" data-spm-max-idx="5">
+        <ul>
+            <li class="selected">
+                <a href="" data-spm-anchor-id="1.7274553.1997557785.1">公告</a>
+            </li>
+            <li class="">
+                <a href="" data-spm-anchor-id="1.7274553.1997557785.2">规则</a>
+            </li>
+            <li>
+                <a href="" data-spm-anchor-id="1.7274553.1997557785.3">论坛</a>
+            </li>
+            <li>
+                <a href="" data-spm-anchor-id="1.7274553.1997557785.4">安全</a>
+            </li>
+            <li>
+                <a href="" data-spm-anchor-id="1.7274553.1997557785.5">公益</a>
+            </li>
+        </ul>
+    </div>
+    <div class="notice-bd">
+        <div class="mod" data-spm="1997558069" style="display: block;" data-spm-max-idx="4">
+            <!-- TMS fp2012/notice.php -->
+            <ul>
+                <li><a href="" data-spm-anchor-id="1.7274553.1997558069.1">小善行大爱守望鲁甸！</a></li>
+                <li><a href="" data-spm-anchor-id="1.7274553.1997558069.2">淘宝爱心募捐援助鲁甸</a></li>
+                <li><a href="" data-spm-anchor-id="1.7274553.1997558069.3">聚划算包船三沙打渔</a></li>
+                <li><a href="" data-spm-anchor-id="1.7274553.1997558069.4">娱乐宝投资人享权益</a></li>
+            </ul>
+            <!-- END --></div>
+        <div class="mod" data-spm="1997558077" style="display: none;" data-spm-max-idx="8"><!-- TMS fp2012/rule.php -->
+            <ul>
+                <li><span>[<a href="" data-spm-anchor-id="1.7274553.1997558077.1">解读</a>]</span> <a href="" class="h"
+                                                                                                    data-spm-anchor-id="1.7274553.1997558077.2">听说滥发要变！</a>
+                </li>
+                <li><span>[<a href="" data-spm-anchor-id="1.7274553.1997558077.3">通知</a>]</span> <a href=""
+                                                                                                    data-spm-anchor-id="1.7274553.1997558077.4">冻结资金是个啥？</a>
+                </li>
+                <li><span>[<a href="" data-spm-anchor-id="1.7274553.1997558077.5">通知</a>]</span> <a href=""
+                                                                                                    data-spm-anchor-id="1.7274553.1997558077.6">还敢虚假交易？</a>
+                </li>
+                <li><span>[<a href="" data-spm-anchor-id="1.7274553.1997558077.7">规则</a>]</span> <a href=""
+                                                                                                    data-spm-anchor-id="1.7274553.1997558077.8">禁发商品名录</a>
+                </li>
+            </ul>
+            <!-- END --></div>
+        <div class="mod" data-spm="1997558081" style="display: none;"><!-- TMS fp2012/bbs.php -->
+            <ul>
+                <li><span>[<a href="">聚焦</a>]</span> <a href="">金牌卖家再启航</a></li>
+                <li><span>[<a href="">功能</a>]</span> <a href="">橱窗规则升级啦</a></li>
+                <li><span>[<a href="">话题</a>]</span> <a href="" class="h">赢公仔，上头条</a></li>
+                <li><span>[<a href="">工具</a>]</span> <a href="">购后送店铺红包</a></li>
+            </ul>
+            <!-- END --></div>
+        <div class="mod" data-spm="1997558085" style="display: none;"><!-- TMS fp2012/guarantee.php -->
+            <ul>
+                <li><a href="" class="h">卡单、失效都是骗人的</a></li>
+                <li><a href="">卖家防范红包欺诈提醒</a></li>
+                <li><a href="">更换收货地址的陷阱！</a></li>
+                <li><a href="">注意骗子的技术升级了！</a></li>
+            </ul>
+            <!-- END --></div>
+        <div class="mod" data-spm="1997558093" style="display: none;"><!-- TMS fp2012/public.php -->
+            <ul>
+                <li><a href="" class="h">淘宝与您一起驰援鲁甸</a></li>
+                <li><a href="">大众评审赢公益金公仔</a></li>
+                <li><a href="">爱心品牌商家榜公布啦</a></li>
+                <li><a href="">公益机构淘宝开店攻略</a></li>
+            </ul>
+            <!-- END --></div>
+    </div>
+</div>
+</body>
+</html>
