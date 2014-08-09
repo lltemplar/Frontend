@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .filter {
+            z-index: 1000;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            _position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #000;
+            opacity: .3;
+            filter: alpha(opacity=30);
+        }
+        .popBox .pop {
+            position: fixed!important;
+            position: absolute;
+            width: 640px;
+            left: 18%;
+            top: 10.5%;
+            z-index: 1300;
+            text-align: left;
+            display: none;
+        }
+        .popBox .pop .t {
+            height: 31px;
+            line-height: 31px;
+            overflow: hidden;
+            background: #c3e1f3 url(./bg_winTitle.gif) repeat-x;
+            -webkit-border-radius: 5px 5px 0 0;
+            -moz-border-radius: 5px 5px 0 0;
+            border-radius: 5px 5px 0 0;
+            border: 1px solid #014663;
+            border-bottom: 0;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            padding-left: 14px;
+        }
+        .popBox .pop .t .closeBtn {
+            float: right;
+            width: 49px;
+            height: 21px;
+            margin: 0 10px 10px 0;
+            line-height: 21px;
+            text-align: center;
+            overflow: hidden;
+            background: url(./bg_winTitle.gif) 0 -51px no-repeat;
+            cursor: pointer;
+        }
+        .popBox .pop .t .closeBtn:hover{
+            background-position: 0 -31px;
+        }
+        .popBox .pop .popBoxContent {
+            border: 1px solid #014665;
+            background: #fff;
+        }
+        .dopop_success td {
+            color: #418a00;
+            line-height: 30px;
+            padding: 5px;
+            font-size: 14px;
+            vertical-align: middle;
+        }
+        .successIco {
+            background: url(./ico_tips.png) 0 0 no-repeat;
+            _background: url(./ico_tips.gif) 0 0 no-repeat;
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+        }
+        .popBox .pop .c {
+            background: #fff;
+            line-height: 20px;
+            font-size: 14px;
+        }
+        .popBox .pop .b {
+            margin: 8px 10px 0;
+            padding-top: 5px;
+            clear: both;
+            text-align: center;
+        }
+        .btn_150x30 {
+            background: url(./btn_150x439.gif) 0 -226px no-repeat;
+            padding-left: 2px;
+            display: inline-block;
+            line-height: 22px;
+            height: 30px;
+            white-space: nowrap;
+            border: 0;
+            color: #fff;
+            overflow: visible;
+        }
+        .btn_150x30 button, .btn_150x30 span {
+            background: url(./btn_150x439.gif) right -226px no-repeat;
+            font-size: 14px;
+            color: #fff;
+            padding: 0 17px 0 15px;
+            line-height: 30px;
+            height: 30px;
+            white-space: nowrap;
+            border: 0;
+            overflow: visible;
+        }
+    </style>
+    <script src="jquery.js"></script>
+    <script>
+/*        $.fn.dragDrop = {init: function(j) {
+            var f = {id: "",dragHeadle: ".t",cover: self};
+            var e = jQuery.extend({}, f, j);
+            var a = {}, i = {};
+            var b = e.cover;
+            if (e.isLock) {
+                a = $(b.document.body).find("#" + e.id).find(e.sub)
+            } else {
+                a = $(b.document.body).find("#" + e.id)
+            }
+            var c = a.offset();
+            var h = a.find(e.dragHeadle).unbind("mousedown").bind("mousedown", function(k) {
+                var l = a.offset();
+                i = {x: k.pageX - l.left,y: k.pageY - l.top};
+                $(this).css("cursor", "move");
+                $(b.document).bind({mousemove: g,mouseup: d});
+                return false
+            });
+            function g(l) {
+                var k = l.pageX - i.x;
+                var m = l.pageY - i.y;
+                a.offset({left: k,top: m});
+                clsSelect(b)
+            }
+            function d(k) {
+                h.css("cursor", "default");
+                $(b.document).unbind("mousemove", g).unbind("mouseup", d)
+            }
+            return this
+        }};*/
+        function move(e){
+            $(this).css("cursor", "move");
+            var x = e.pageX - e.data.p.x;
+            var y = e.pageY - e.data.p.y;
+            $(this).offset({left:x,top:y});
+        }
+        function up(e){
+            $(this).find(".t").css("cursor","default");
+            $(this).unbind("mousemove",move).unbind("mouseup",up);
+        //    e.cancelBubble = true;
+        }
+        $(function(){
+            $(".pop").find(".t").unbind("mousedown").bind("mousedown",function(e){
+               var position = $(this).parent().offset();
+                var padding = {x: e.pageX - position.left,y: e.pageY - position.top};
+                $(this).css("cursor", "move");
+                $(this).parent().bind("mousemove",{p:padding},move);
+                $(this).parent().bind("mouseup",{p:padding},up);
+            });
+        });
+
+    </script>
+</head>
+<body>
+<div style="height: 100%;width:100%">
+<div class="popBox"
+     style="z-index: 200; width: 1263px; height: 4105px; left: 0px; top: 0px; display: block;">
+    <div class="filter">
+    </div>
+    <div class="pop" style="width: 400px; left: 431.5px; top: 239.5px; display: block;">
+        <div class="t">
+            <div><span class="fl">消息提示</span><span id="closeBtn" class="closeBtn" title="点击关闭"></span></div>
+        </div>
+        <div class="popBoxContent" style="padding:15px 15px 25px 15px">
+            <div class="c">
+                <div class="dopop_success">
+                    <table border="0" cellspacing="0" cellpadding="0" align="center">
+                        <tbody>
+                        <tr>
+                            <td><span class="successIco"></span></td>
+                            <td>参与本商品竞拍将会先扣除您10E分，请确认是否参与？</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="b" style=""><span class="btn_150x30"><button>确认参与
+            </button></span>&nbsp;&nbsp;<span class="btn_150x30"><button>考虑一下
+            </button></span>&nbsp;&nbsp;</div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
