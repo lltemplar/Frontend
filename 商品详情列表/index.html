@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0px;
+        }
+        body{
+            padding:10px;
+        }
+        .border{
+            border:1px solid #f40;
+            float:left;
+            padding:10px;
+        }
+        .bigPic img{
+            width: 300;
+            height: 300;
+        }
+        .imgList {
+            overflow: hidden;
+            position: relative;
+            width: 340px;
+            margin-top: 10px;
+        }
+        .imgList i {
+            background: #fff url(icons_img.png) no-repeat;
+            cursor: pointer;
+            display: block;
+            width: 35px;
+            height: 60px;
+            position: absolute;
+            top: 0;
+        }
+        .imgList i.left {
+            background-position: -12px -246px;
+            left: 0;
+        }
+        .imgList i.right {
+            background-position: -11px -185px;
+            right: 0;
+        }
+        .imgList ul {
+            height: 60px;
+            padding: 0 35px;
+        }
+        .imgList li {
+            display: inline;
+            float: left;
+            margin-right: 10px;
+            width: 58px;
+            height: 58px;
+            border: 1px solid #f40;
+            text-align: center;
+            list-style: none;
+        }
+        .imgList img {
+            width: 58px;
+            height: 58px;
+        }
+    </style>
+    <script src="jquery.js" type="text/javascript"></script>
+    <script>
+        $(function(){
+            slideImg($("div.imgList"));
+            showImg($("div.imgList"));
+        });
+        function slideImg(imgList){
+            var num = 4;
+            var sum = imgList.find("li").length;
+            if(sum <= num){
+                imgList.find("#turnL").hide();
+                imgList.find("#turnR").hide();
+                return;
+            }
+            var gap = $(imgList.find("li").get(num)).offset().left - $( imgList.find("li").get(0)).offset().left;
+            var index = 1;
+            var padding = 0;
+            imgList.find("#turnL").hide();
+            imgList.find("#turnR").click(function(){
+                $(this).siblings("#turnL").show();
+                padding += gap;
+                $(this).siblings("ul").stop(true,false).animate({"margin-left":-padding},600);
+                index++;
+                if(sum/num <= index){
+                    $(this).hide();
+                }
+            });
+            imgList.find("#turnL").click(function(){
+                $(this).siblings("#turnR").show();
+                padding -= gap;
+                $(this).siblings("ul").stop(true,false).animate({"margin-left":-padding},600);
+                index--;
+                if(index == 1){
+                    $(this).hide();
+                }
+            });
+        }
+        function showImg(imgList){
+            imgList.find("li").click(function(){
+                imgList.siblings("div.bigPic").find("img").attr("src",$(this).find("img").attr("src"));
+            });
+        }
+    </script>
+</head>
+<body>
+<div class="border">
+    <div class="bigPic">
+        <a ><img src="1.jpg"></a>
+    </div>
+    <div id="turnPic" class="imgList">
+        <i id="turnL" class="left" ></i>
+        <i id="turnR" class="right"></i>
+        <ul style="width: 840px;">
+            <li><a ><img src="1.jpg" alt="语信“红辣椒”LA2 T（免合约）图片1" title="语信“红辣椒”LA2 T（免合约）图片1"></a></li>
+            <li><a ><img src="2.jpg" alt="语信“红辣椒”LA2 T（免合约）图片2" title="语信“红辣椒”LA2 T（免合约）图片2"></a></li>
+            <li><a ><img src="3.jpg" alt="语信“红辣椒”LA2 T（免合约）图片3" title="语信“红辣椒”LA2 T（免合约）图片3"></a></li>
+            <li><a ><img src="4.jpg" alt="语信“红辣椒”LA2 T（免合约）图片4" title="语信“红辣椒”LA2 T（免合约）图片4"></a></li>
+            <li><a ><img src="5.jpg" alt="语信“红辣椒”LA2 T（免合约）图片5" title="语信“红辣椒”LA2 T（免合约）图片5"></a></li>
+            <li><a ><img src="6.jpg" alt="语信“红辣椒”LA2 T（免合约）图片6" title="语信“红辣椒”LA2 T（免合约）图片6"></a></li>
+            <li><a ><img src="7.jpg" alt="语信“红辣椒”LA2 T（免合约）图片7" title="语信“红辣椒”LA2 T（免合约）图片7"></a></li>
+            <li><a ><img src="8.jpg" alt="语信“红辣椒”LA2 T（免合约）图片8" title="语信“红辣椒”LA2 T（免合约）图片8"></a></li>
+            <li><a ><img src="9.jpg" alt="语信“红辣椒”LA2 T（免合约）图片9" title="语信“红辣椒”LA2 T（免合约）图片9"></a></li>
+            <li><a ><img src="10.jpg" alt="语信“红辣椒”LA2 T（免合约）图片10" title="语信“红辣椒”LA2 T（免合约）图片10"></a></li>
+            <li><a ><img src="11.jpg" alt="语信“红辣椒”LA2 T（免合约）图片11" title="语信“红辣椒”LA2 T（免合约）图片11"></a></li>
+            <li><a ><img src="12.jpg" alt="语信“红辣椒”LA2 T（免合约）图片12" title="语信“红辣椒”LA2 T（免合约）图片12"></a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
