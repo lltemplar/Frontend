@@ -2,7 +2,7 @@
  * jquery.pic.js 0.1
  * Copyright (c) 2014 lianglin
  * Date: 2014-08-17
- * lazyload:图片延时加载；
+ * lazyload:图片延时加载；picZoom:图片放大功能
  */
 (function($){
     $.fn.lazyLoad = function(options){
@@ -19,7 +19,6 @@
                     var scrollHeight = $(window).scrollTop();
                     if (marginTop - scrollHeight <= screenHeight) {
                         img.attr("src", img.attr("_src"));
-                        console.log(index + "is loaded");
                         load = true;
                     }
                 }
@@ -33,19 +32,19 @@
         options = $.extend(defaults, options);
         this.each(function (index, item) {
             var oSpan = $(this).find("span");
-            var oImgParent = $(this).next();
-            var oImg = $(this).next().find("img");
-            oImgParent.css("left",$(this).offset().left + $(this).width() +"px");
-            oImgParent.css("top",$(this).offset().top);
-            $(this).mouseenter(function () {
+            var oImg = $(this).find("img").eq(1);
+            var oImgParent = oImg.parent();
+            $(this).find("div").eq(0).mouseenter(function () {
                 oSpan.show();
                 oImgParent.show();
+                oSpan.css("cursor","move");
             });
-            $(this).mouseleave(function () {
+            $(this).find("div").eq(0).mouseleave(function () {
                 oSpan.hide();
                 oImgParent.hide();
+                oSpan.css("cursor","default");
             });
-            $(this).mousemove(function(event){
+            $(this).find("div").eq(0).mousemove(function(event){
                 event = event||window.event;
                 var x = event.pageX - $(this).offset().left - oSpan.width()/2;
                 var y = event.pageY - $(this).offset().top - oSpan.height()/2;
@@ -53,9 +52,9 @@
                 y = y < 0 ? 0 : y;
                 x = x > ($(this).width() - oSpan.width()) ?($(this).width() - oSpan.width()) :x;
                 y = y > ($(this).height() - oSpan.height()) ?($(this).height() - oSpan.height()) :y;
-
                 oSpan.css("left",x +"px");
                 oSpan.css("top",y + "px");
+
                 var percentX = x/($(this).width() - oSpan.width());
                 var percentY = y/($(this).height() - oSpan.height());
                 oImg.css("left",-percentX*(oImg.width() - oImgParent.width()) + "px");
@@ -63,7 +62,6 @@
             });
         });
     };
-
 })(jQuery);
 
 //获取浏览器类型
